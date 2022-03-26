@@ -117,6 +117,7 @@
       <excludeFolder url="file://$MODULE_DIR$/crud-api-rest/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/crud-api-rest/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/crud-api-rest/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/crud-api-rest/vendor/firebase/php-jwt" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

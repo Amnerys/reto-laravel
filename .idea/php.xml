@@ -111,6 +111,7 @@
       <path value="$PROJECT_DIR$/crud-api-rest/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/crud-api-rest/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/crud-api-rest/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/crud-api-rest/vendor/firebase/php-jwt" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
