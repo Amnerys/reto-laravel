@@ -9,6 +9,13 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $table = 'products';
+
+    //Le indicamos que un producto puede tener varias categorías, y que saque las categorías relacionadas con el producto
+    public function categorias(){
+        return $this->hasMany('App\Category', 'categoria_cod');
+    }
+
     protected $fillable = [
         'nombre_producto',
         'descripcion_producto',
