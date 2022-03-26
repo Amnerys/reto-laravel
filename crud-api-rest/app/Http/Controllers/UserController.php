@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Helpers\JWTAuth;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -160,26 +162,85 @@ class UserController extends Controller
                 'changes' => $params_array
             );
 
-        }else{ //devolver mensaje de error
-            $data = array(
-                'code' => 400,
-                'status' => 'error',
-                'message' => 'El usuario no está identificado'
-            );
         }
         return response()->json($data, $data['code']);
     }
 
     /**
      * Método para actualizar la imagen del usuario
+     * Hace la autenticación del usuario a través del Middleware
      */
     public function upload(Request $request){
+        //Recoger datos de la petición
+        $image = $request->file('file0');
 
-        $data = array(
-            'code' => 400,
-            'status' => 'error',
-            'message' => 'El usuario no está identificado'
-        );
+        //Validar imagen
+        $validate = \Validator::make($request->all(),[
+            'file0' => 'required|image|mimes:jpg,jpeg,png,gif'
+        ]);
+
+        //Guardar imagen si no falla la validación y no está vacío
+        if(!$image || $validate->fails()){
+            $data = array(
+                'code' => 400,
+                'status' => 'error',
+                'message' => 'Error al subir la imágen'
+            );
+        }else{
+            $image_name = time().$image->getClientOriginalName(); //saca el nombre original del usuario con el time
+            Storage::disk('users')->put($image_name, \File::get($image));
+
+            $data = array(
+                'image' => $image_name,
+                'code' => '200',
+                'message' => 'La imagen se ha subido correctamente',
+                'status' => 'success'
+            );
+        }
+
+        //Devolver resultado
+        return response()->json($data, $data['code']);
+    }
+    /**
+     * Método para sacar todas las imágenes asociadas al usuario
+     */
+    public function getImage($filename){
+        //Si la imagen existe, devolverla
+        $isset = Storage::disk('users')->exists($filename);
+        if ($isset){
+            $file = Storage::disk('users')->get($filename);
+            return new Response($file, 200);
+        }else{ //Si no existe, lanzar error
+            $data = array(
+                'code' => '404',
+                'message' => 'La imagen no existe',
+                'status' => 'error'
+            );
+            return response()->json($data, $data['code']);
+        }
+
+    }
+
+    /**
+     * Método para devolver los datos del usuario
+     */
+    public function detail($id){
+        $user = User::find($id);
+
+        if(is_object($user)){
+            $data = array(
+                'code' => '200',
+                'message' => 'El usuario se ha encontrado',
+                'status' => 'success',
+                'user' => $user
+            );
+        }else{
+            $data = array(
+                'code' => '404',
+                'message' => 'El usuario no existe',
+                'status' => 'error'
+            );
+        }
         return response()->json($data, $data['code']);
     }
 }
