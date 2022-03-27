@@ -1,12 +1,14 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {User} from "../models/user";
 import {global} from "./global";
 
 @Injectable()
 export class UserService{
   public url: string;
+  public identity;
+  public token;
+
   constructor(
     public _http: HttpClient
   ) {
@@ -17,12 +19,58 @@ export class UserService{
     return "Hola mundo desde service";
   }
 
+  /**
+   * Método para registrar usuarios mandando por JSON los datos al BackEnd
+   */
   register(user): Observable<any>{
-    let json = JSON.stringify(user);
-    let params = 'json=' + json;
+    let params = this.getJSONParams(user);
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
     return this._http.post(this.url+'register', params, {headers: headers});
+  }
+
+  /**
+   * Método para loguear usuarios mandando por JSON los datos al BackEnd
+   */
+  signIn(user, gettoken = null): Observable<any>{
+    if(gettoken != null){
+      user.gettoken = 'true';
+    }
+    let params = this.getJSONParams(user);
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+    return this._http.post(this.url+'login', params, {headers: headers});
+  }
+
+  getJSONParams(user){
+    let json = JSON.stringify(user);
+    return 'json=' + json;
+  }
+
+  /**
+   * Método para sacar la identidad del usuario del local storage
+   */
+  getIdentity(){
+    let identity = JSON.parse(localStorage.getItem('identity'));
+    if (identity && identity != "undefined"){
+      this.identity = identity;
+    }else{
+      this.identity = null;
+    }
+    return this.identity;
+  }
+
+  /**
+   * Método para sacar el token del usuario del local storage
+   */
+  getToken(){
+    let token = localStorage.getItem('token');
+    if (token && token != "undefined"){
+      this.token = token;
+    }else{
+      this.token = null;
+    }
+    return this.identity;
   }
 
 }

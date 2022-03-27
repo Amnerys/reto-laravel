@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   {path: 'inicio', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'logout/:sure', component: LoginComponent}, //Método de logout si llega el parámetro sure
   {path: '**', component: ErrorComponent} //cuando no exista una ruta indicada, saltará error, SIEMPRE AL FINAL
 ];
 

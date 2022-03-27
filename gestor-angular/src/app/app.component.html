@@ -40,15 +40,18 @@
 
         <ul class="navbar-nav navbar-right">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" *ngIf="!identity || !identity.nombre" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Usuario
             </a>
+            <a class="nav-link dropdown-toggle" *ngIf="identity && identity.nombre" href="#" id="navbarDropdownUserLogged" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{identity.nombre + ' ' + identity.apellidos}}
+            </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" [routerLink]="['/register']">Registro</a></li>
-              <li><a class="dropdown-item" href="#">Ajustes perfil</a></li>
+              <li><a class="dropdown-item" *ngIf="!identity || !identity.nombre" [routerLink]="['/register']">Registro</a></li>
+              <li><a class="dropdown-item" *ngIf="identity && identity.nombre" href="#">Ajustes perfil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" [routerLink]="['/login']">Login</a></li>
-              <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+              <li><a class="dropdown-item" *ngIf="!identity || !identity.nombre" [routerLink]="['/login']">Login</a></li>
+              <li><a class="dropdown-item" *ngIf="identity && identity.nombre" [routerLink]="['/logout/1']">Cerrar sesión</a></li>
             </ul>
           </li>
         </ul>

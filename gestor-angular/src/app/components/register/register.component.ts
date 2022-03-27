@@ -18,14 +18,18 @@ export class RegisterComponent implements OnInit {
     private _userService: UserService
   ) {
     this.page_title = 'Regístrate';
-    this.user = new User(1,'', '', '', '', '', '')
+    this.user = new User(1,'', '', '', '', '', '');
   }
 
   ngOnInit(): void {
     console.log('Componente de registro lanzado');
   }
 
+  /**
+   * Método que implementa el botón de registro del formulario
+   */
   onSubmit(form){
+    //Recogemos los datos del formulario de registro y los enviamos al back con el userService
     this._userService.register(this.user).subscribe(
       response => {
         if (response.status == "success"){
