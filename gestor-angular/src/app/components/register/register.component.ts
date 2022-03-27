@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import {User} from "../../models/user";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [UserService]
 })
 
 export class RegisterComponent implements OnInit {
   public page_title: string;
   public user: User;
-  //public formBuilder: FormBuilder;
+  public status: string;
 
-  constructor() {
+  constructor(
+    private _userService: UserService
+  ) {
     this.page_title = 'Regístrate';
     this.user = new User(1,'', '', '', '', '', '')
   }
@@ -23,8 +26,19 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(form){
-    console.log(this.user);
-    form.reset();
+    this._userService.register(this.user).subscribe(
+      response => {
+        if (response.status == "success"){
+          this.status = response.status;
+          form.reset();
+        }else{
+          this.status = "error";
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
 
   }
 
