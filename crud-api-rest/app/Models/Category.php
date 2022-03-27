@@ -12,9 +12,9 @@ class Category extends Model
     //Este modelo usará la tabla 'categories'
     protected $table = 'categories';
 
-    //Le indicamos que una categoría puede tener varios productos y que saque los productos relacionados con la categoría
+    //Relación de muchos productos pueden tener muchas categorías n-n
     public function productos(){
-        return $this->hasMany('App\Product');
+        return $this->belongsToMany('App\Models\Product');
     }
 
     protected $fillable = [

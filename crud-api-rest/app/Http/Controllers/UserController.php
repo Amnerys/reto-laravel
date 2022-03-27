@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function pruebas(Request $request){
-        return "Acción de pruebas de Usurario";
-    }
-
     /**
      * Método para hacer el registro de usuarios
      */

@@ -8,12 +8,11 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+    /**
+     * Constructor para que nos pida la autenticación a través del middleware
+     */
     public function __construct(){
         $this->middleware('api.auth', ['except'=> ['index','show']]);
-    }
-
-    public function pruebas(Request $request){
-        return "Acción de pruebas de Categoria";
     }
 
     /**

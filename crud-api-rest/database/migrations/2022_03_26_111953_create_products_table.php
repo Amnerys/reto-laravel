@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('nombre_producto');
             $table->string('descripcion_producto')->nullable();
             $table->string('foto')->nullable();
-            $table->integer('categoria_cod');
+            $table->integer('category_id');
             $table->string('tarifa');
             $table->timestamps();
         });

@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'nombre_producto' => $this->faker->realText(30),
             'descripcion_producto' => $this->faker->realText(250),
             'foto' => 'foto.jpg',
-            'categoria_cod' => rand(1,10), //Solo hemos creado 10 categorías
+            'category_id' => rand(1,10), //Solo hemos creado 10 categorías
             'tarifa' => $this->faker->randomFloat(2, 0, 1000),
             'created_at' => now(),
             'updated_at' => now(),

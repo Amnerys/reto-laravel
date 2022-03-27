@@ -11,16 +11,16 @@ class Product extends Model
 
     protected $table = 'products';
 
-    //Le indicamos que un producto puede tener varias categorías, y que saque las categorías relacionadas con el producto
+    //Relación de un producto puede tener muchas categorías (y a la inversa), encontrar en la tabla products por el id de category_id
     public function categorias(){
-        return $this->hasMany('App\Category', 'categoria_cod');
+        return $this->belongsToMany('App\Models\Category', 'products', 'id');
     }
 
     protected $fillable = [
         'nombre_producto',
         'descripcion_producto',
-        'fotos_producto',
-        'categoria_cod',
+        'foto',
+        'category_id',
         'tarifa',
         'created_at',
         'updated_at',
