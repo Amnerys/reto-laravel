@@ -25,3 +25,7 @@ Crear la base de datos con:
 Usar la base de datos:
 
 `use reto_laravel;`
+
+Levantar servidor para ejecutar proyecto de Angular:
+
+`ng serve`
