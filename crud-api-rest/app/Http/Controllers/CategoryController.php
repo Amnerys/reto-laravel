@@ -134,4 +134,28 @@ class CategoryController extends Controller
         //Devolver los datos
         return response()->json($data, $data['code']);
     }
+
+    /**
+     * Método para borrar una categoría
+     * Se hace la autenticación por el middleware
+     */
+    public function destroy($id, Request $request){
+        //Buscar el registro del producto por el id
+        $category = Category::find($id);
+
+        if(!empty($category)){
+            //Borrar el producto
+            $category->delete();
+            //Devolver mensaje conforme se ha borrado
+            $data = [ //Se ha podido borrar
+                'code' => 200,
+                'status' => 'success',
+                'message' => 'Categoría eliminada correctamente.',
+                'product' => $category
+            ];
+        }else{ //No se ha podido borrar
+            $data = $this->statusData(400,$category);
+        }
+        return response()->json($data, $data['code']);
+    }
 }

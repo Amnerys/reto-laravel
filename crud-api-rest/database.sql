@@ -1,7 +1,7 @@
 create database if not exists reto_laravel;
 use reto_laravel;
 
-create table usuarios(
+create table users(
 id      int(255) auto_increment not null,
 nombre    varchar (50) not null,
 apellidos    varchar (100),
@@ -15,8 +15,8 @@ remember_token    varchar (255),
 CONSTRAINT pk_usuarios PRIMARY KEY(id)
 )ENGINE=InnoDb;
 
-create table categorias(
-cod_categoria      int(255) auto_increment not null,
+create table categories(
+id      int(255) auto_increment not null,
 nombre_categoria    varchar (100) not null,
 descripcion_categoria    text,
 created_at  datetime default null,
@@ -24,8 +24,8 @@ updated_at    datetime default null,
 CONSTRAINT pk_categorias PRIMARY KEY(cod_categoria)
 )ENGINE=InnoDb;
 
-create table productos(
-cod_producto      int(255) auto_increment not null,
+create table products(
+id      int(255) auto_increment not null,
 nombre_producto    varchar (100) not null,
 descripcion_producto    text,
 foto    varchar (255),

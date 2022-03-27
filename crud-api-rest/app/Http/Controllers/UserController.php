@@ -163,6 +163,29 @@ class UserController extends Controller
     }
 
     /**
+     * Método para borrar un usuario
+     */
+    public function deleteUser($id, Request $request){
+        //Buscar el registro del producto por el id
+        $user = User::find($id);
+
+        if(!empty($user)){
+            //Borrar el producto
+            $user->delete();
+            //Devolver mensaje conforme se ha borrado
+            $data = [ //Se ha podido borrar
+                'code' => 200,
+                'status' => 'success',
+                'message' => 'Usuario eliminado correctamente.',
+                'usuario' => $user
+            ];
+        }else{ //No se ha podido borrar
+            $data = $this->statusData(400,$user);
+        }
+        return response()->json($data, $data['code']);
+    }
+
+    /**
      * Método para actualizar la imagen del usuario
      * Hace la autenticación del usuario a través del Middleware
      */
