@@ -10,7 +10,7 @@ El BackEnd está formado con Laravel y basado en API RESTful, con 3 CRUDs:
 Está compuesto por las tres clases modelo, sus seeders, factories y migrations.
 Productos y Categorías están relacionados.
 
-El FrontEnd está creado en Angular, con Bootstrap.
+El FrontEnd está creado en Angular con Bootstrap y jQuery.
 
 ## Instrucciones:
 Migrar los datos dummies para la Base de Datos con el comando:
@@ -29,3 +29,7 @@ Usar la base de datos:
 Levantar servidor para ejecutar proyecto de Angular:
 
 `ng serve`
+
+Usar la dirección proporcionada en el navegador para ejecutar el proyecto:
+
+`http://localhost:4200/`
