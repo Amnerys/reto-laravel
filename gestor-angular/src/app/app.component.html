@@ -48,7 +48,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" *ngIf="!identity || !identity.nombre" [routerLink]="['/register']">Registro</a></li>
-              <li><a class="dropdown-item" *ngIf="identity && identity.nombre" href="#">Ajustes perfil</a></li>
+              <li><a class="dropdown-item" *ngIf="identity && identity.nombre" [routerLink]="['/ajustes']">Ajustes perfil</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" *ngIf="!identity || !identity.nombre" [routerLink]="['/login']">Login</a></li>
               <li><a class="dropdown-item" *ngIf="identity && identity.nombre" [routerLink]="['/logout/1']">Cerrar sesión</a></li>

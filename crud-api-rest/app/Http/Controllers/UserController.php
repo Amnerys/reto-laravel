@@ -157,8 +157,14 @@ class UserController extends Controller
                 'user' => $user,
                 'changes' => $params_array
             );
-
+        }else{
+            $data = array(
+                'status' => 'error',
+                'code' => '400',
+                'message' => 'El usuario no está identificado'
+            );
         }
+
         return response()->json($data, $data['code']);
     }
 

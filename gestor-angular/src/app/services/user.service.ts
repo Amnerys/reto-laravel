@@ -13,6 +13,7 @@ export class UserService{
     public _http: HttpClient
   ) {
     this.url = global.url;
+    // const headers= new HttpHeaders().set('Access-Control-Allow-Origin', '*');
   }
 
   test(){
@@ -47,6 +48,17 @@ export class UserService{
     return 'json=' + json;
   }
 
+  update(token, user){
+    //Coger datos de user y convertirlos a jsonString
+    let params = this.getJSONParams(user);
+    console.log('Parámetros: ' + typeof (params) + ' Token: ' +typeof (token));
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Authorization',token);
+
+    return this._http.put(this.url+'user/update', params, {headers: headers});
+  }
+
   /**
    * Método para sacar la identidad del usuario del local storage
    */
@@ -70,7 +82,7 @@ export class UserService{
     }else{
       this.token = null;
     }
-    return this.identity;
+    return this.token;
   }
 
 }

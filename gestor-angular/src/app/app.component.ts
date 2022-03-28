@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, DoCheck{
   }
 
   /**
-   * Método para sacar el token y la identidad del usuario del local storage
+   * Sacar el token y la identidad del usuario del local storage
    * */
   loadUser(){
     this.identity = this._userService.getIdentity();

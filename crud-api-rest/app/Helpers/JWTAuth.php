@@ -39,6 +39,8 @@ class JWTAuth{
                 'email' => $user->email,
                 'nombre' => $user->nombre,
                 'apellidos' =>  $user->apellidos,
+                'fecha_nacimiento' => $user->fecha_nacimiento,
+                'foto' => $user->foto,
                 'iat' => time(), //cuándo se creó el token
                 'exp' => time() + (7*24*60*60) //expirá en una semana el token
             );
