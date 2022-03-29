@@ -38,10 +38,18 @@
 
     <div class="form-group">
       <label for="image">Imagen</label>
-      <input type="file" id="image" name="image" class="form-control" #image="ngModel" [(ngModel)]="user.foto">
+      <div *ngIf="identity && identity.foto">
+        <img src="{{url + 'user/avatar/' + identity.foto}}" class="avatar_edit">
+      </div>
+      <!-- <input type="file" id="image" name="image" class="form-control" #image="ngModel" [(ngModel)]="user.foto"> -->
+      <angular-file-uploader
+        [config]="afuConfig"
+        (ApiResponse)="avatarUpload($event)">
+      </angular-file-uploader>
     </div>
 
     <input type="submit" value="Guardar cambios" class="btn btn-success mt-4" [disabled]="userEditForm.invalid" >
   </form>
+  <br>
 
 </div>

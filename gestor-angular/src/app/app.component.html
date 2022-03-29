@@ -17,28 +17,33 @@
             <a class="nav-link" [routerLink]="['/inicio']">Inicio</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Categorías</a>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav fr-align-right">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdd" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Agregar
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProducts" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Productos
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Añadir Producto</a></li>
+              <li><a class="dropdown-item" href="#">Ver Productos</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Añadir Categoría</a></li>
+              <li><a class="dropdown-item" href="#">Crear Producto</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdd" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Ver Categorías</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item"  [routerLink]="['crear-categoria']">Crear Categoría</a></li>
             </ul>
           </li>
         </ul>
 
         <ul class="navbar-nav navbar-right">
+          <li *ngIf="identity && identity.foto" class="">
+            <img src="{{url + 'user/avatar/' + identity.foto}}" class="avatar_nav">
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" *ngIf="!identity || !identity.nombre" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Usuario
@@ -63,6 +68,10 @@
 
   <!-- Contenido routing -->
   <router-outlet></router-outlet>
+
+  <hr>
+  <footer>Creado con Laravel 9 y Angular 12</footer>
+  <hr>
 
 </div>
 <!-- /Contenedor principal -->

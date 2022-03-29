@@ -48,7 +48,7 @@ export class UserService{
     return 'json=' + json;
   }
 
-  update(token, user){
+  update(token, user) : Observable<any>{
     //Coger datos de user y convertirlos a jsonString
     let params = this.getJSONParams(user);
     console.log('Parámetros: ' + typeof (params) + ' Token: ' +typeof (token));
