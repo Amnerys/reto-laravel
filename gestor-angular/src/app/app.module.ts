@@ -14,6 +14,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
+import { ProductNewComponent } from './components/product-new/product-new.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CategoryListComponent } from './components/category-list/category-list.
     ErrorComponent,
     UserEditComponent,
     CategoryNewComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    ProductNewComponent
   ],
   imports: [
     BrowserModule,

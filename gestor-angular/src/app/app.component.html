@@ -24,7 +24,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Ver Productos</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Crear Producto</a></li>
+              <li><a class="dropdown-item" [routerLink]="['crear-producto']">Crear Producto</a></li>
             </ul>
           </li>
 
@@ -33,7 +33,7 @@
               Categorias
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Ver Categorías</a></li>
+              <li><a class="dropdown-item" [routerLink]="['ver-categorias']">Ver Categorías</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item"  [routerLink]="['crear-categoria']">Crear Categoría</a></li>
             </ul>

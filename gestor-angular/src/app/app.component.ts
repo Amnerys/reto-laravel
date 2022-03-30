@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, DoCheck{
 
   ngOnInit() {
     console.log('Web app cargada correctamente');
-    this.getCategories();
+    //this.getCategories();
   }
 
   ngDoCheck() {

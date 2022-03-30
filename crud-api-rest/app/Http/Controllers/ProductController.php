@@ -230,14 +230,24 @@ class ProductController extends Controller
         $validation = \Validator::make($array, [
             'nombre_producto'       => 'required',
             'descripcion_producto'  => 'alpha_dash',
-            'foto'                  => 'image',
+            //'foto'                  => 'image',
             'category_id'           => 'required|numeric',
-            'tarifa'                => 'numeric',
+            'tarifa'                => 'required|numeric',
         ]);
         return $validation;
     }
 
     /**
+     * {
+    "id": 1,
+    "nombre_producto": "Una",
+    "descripcion_producto": "",
+    "foto": null,
+    "category_id": 1,
+    "tarifa": 0,
+    "updated_at": null
+    }
+     *
      * Método para lanzar el mensaje correspondiente al código pasado y los datos del producto
      */
     public function statusData($code, $product){
