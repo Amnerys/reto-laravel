@@ -1,0 +1,40 @@
+<div class="loading" *ngIf="!products">
+  Cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="products">
+  <h1>{{page_title}}</h1>
+  <hr>
+
+  <div class="card-columns mt-4 col-md-8" >
+    <article class="card w-100" *ngFor="let product of products">
+
+      <div class="card-header">
+        <h4 class="mb-lg-2 mt-lg-2">
+          <a [routerLink]="['/inicio']">{{product.nombre_producto}}</a>
+        </h4>
+      </div>
+
+      <div class="card-body">
+        <!-- imagen con tamaño concreto para hacer de máscara-->
+        <div class="product-image" *ngIf="product.foto">
+          <img src="{{url+'product/image/' + product.foto}}" class="w-100">
+        </div>
+        <div class="product-image" *ngIf="!product.foto">
+          <img src="https://picsum.photos/200/300" class="w-100">
+        </div>
+
+        <!-- Acciones botones productos, solo se ven editar y eliminar si el usuario está identificado -->
+        <div class="product-buttons mt-1">
+          <a [routerLink]="['/inicio']" class="btn btn-success mr-auto mb-2">Ver Producto</a>
+          <span *ngIf="identity">
+            <a [routerLink]="['/inicio']" class="btn btn-warning mr-auto mb-2">Editar Producto</a>
+            <a [routerLink]="['/inicio']" class="btn btn-danger mr-auto mb-2" >Eliminar Producto</a>
+          </span>
+        </div>
+
+      </div>
+    </article>
+  </div>
+
+</div>

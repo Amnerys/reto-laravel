@@ -15,6 +15,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { ProductNewComponent } from './components/product-new/product-new.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductNewComponent } from './components/product-new/product-new.compon
     UserEditComponent,
     CategoryNewComponent,
     CategoryListComponent,
-    ProductNewComponent
+    ProductNewComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

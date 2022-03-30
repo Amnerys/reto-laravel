@@ -11,3 +11,12 @@
   border-radius: 900px;
   margin: 2px;
 }
+
+.card-header a{
+  color: #444;
+}
+
+.product-image{
+  height: 200px;
+  overflow: hidden;
+}

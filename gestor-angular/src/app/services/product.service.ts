@@ -26,6 +26,9 @@ export class ProductService {
     return "Lanzando servico de producto";
   }
 
+  /**
+   * Método para crear un nuevo producto (POST)
+   */
   create(token, product):Observable<any>{
     let params = this.getJSONParams(product);
     console.log('Leo producto en service: ');
@@ -37,8 +40,13 @@ export class ProductService {
     return this._http.post(this.url + 'product', params, {headers: headers});
   }
 
+  /**
+   * Método para sacar todos los productos (GET)
+   */
   getProducts():Observable<any>{
-    let headers =
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded');
+    return this._http.get(this.url + 'product', {headers: headers});
   }
 
   getJSONParams(product){

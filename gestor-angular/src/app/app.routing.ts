@@ -10,6 +10,7 @@ import {UserEditComponent} from "./components/user-edit/user-edit.component";
 import {CategoryNewComponent} from "./components/category-new/category-new.component";
 import {CategoryListComponent} from "./components/category-list/category-list.component";
 import {ProductNewComponent} from "./components/product-new/product-new.component";
+import {ProductListComponent} from "./components/product-list/product-list.component";
 
 //Definir rutas
 const appRoutes: Routes = [
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   {path: 'crear-categoria', component: CategoryNewComponent},
   {path: 'ver-categorias', component: CategoryListComponent},
   {path: 'crear-producto', component: ProductNewComponent},
+  {path: 'ver-productos', component: ProductListComponent},
   {path: '**', component: ErrorComponent} //cuando no exista una ruta indicada, saltará error, SIEMPRE AL FINAL
 ];
 
