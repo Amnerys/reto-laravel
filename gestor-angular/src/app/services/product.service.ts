@@ -31,7 +31,6 @@ export class ProductService {
    */
   create(token, product):Observable<any>{
     let params = this.getJSONParams(product);
-    console.log('Leo producto en service: ');
     console.log(params);
     console.log(token);
     let headers = new HttpHeaders()
@@ -47,6 +46,36 @@ export class ProductService {
     let headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
     return this._http.get(this.url + 'product', {headers: headers});
+  }
+
+  /**
+   * Método para sacar un producto por su id (GET)
+   */
+  getProductDetail(id):Observable<any>{
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded');
+    return this._http.get(this.url + 'product/' +id, {headers: headers});
+  }
+
+  /**
+   * Método para actualizar un producto por su id (PUT)
+   */
+  update(token, product, id):Observable<any>{
+    let params = this.getJSONParams(product);
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Authorization', token);
+    return this._http.put(this.url + 'product/' +id, params, {headers: headers});
+  }
+
+  /**
+   * Método para borrar un producto por su id (PUT)
+   */
+  delete(token,id){
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Authorization', token);
+    return this._http.delete(this.url + 'product/' +id, {headers: headers});
   }
 
   getJSONParams(product){

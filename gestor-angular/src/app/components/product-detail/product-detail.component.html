@@ -1,0 +1,28 @@
+<div class="loading" *ngIf="!product">
+  Cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="product">
+  <h1 class="mb-2">{{product.nombre_producto}}</h1>
+  <hr>
+
+  <div *ngIf=" product.foto" class="mb-2">
+    <img src="{{url+'product/image/' + product.foto}}" class="w-50">
+  </div>
+
+  <h3 class="mb-2">Precio:</h3>
+  <p>{{product.tarifa}} €</p>
+  <hr>
+
+  <h3 class="mb-2">Descripción:</h3>
+  <p [innerHTML]="product.descripcion_producto">{{product.descripcion_producto}}</p>
+
+  <hr>
+  <h3 class="mb-2">Categoría:</h3>
+  <p>{{categoryName}}</p>
+  <hr>
+
+  <h4 class="mb-2">Última actualización:</h4>
+  <p>{{product.updated_at}}</p>
+
+</div>
