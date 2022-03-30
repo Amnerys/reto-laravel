@@ -13,7 +13,6 @@ export class UserService{
     public _http: HttpClient
   ) {
     this.url = global.url;
-    // const headers= new HttpHeaders().set('Access-Control-Allow-Origin', '*');
   }
 
   test(){
