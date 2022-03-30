@@ -33,11 +33,6 @@
 
     <div class="form-group">
       <label for="image">Imagen del producto</label>
-      <!--
-      <div *ngIf="product && product.foto">
-        <img src="{{url + 'user/avatar/' + product.foto}}" class="avatar_edit">
-      </div>
-      -->
       <angular-file-uploader
         [config]="afuConfig"
         (ApiResponse)="imageUpload($event)">

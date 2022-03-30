@@ -89,7 +89,7 @@ class ProductController extends Controller
      * Método para actualizar un producto
      */
     public function update($id, Request $request){
-        //Recoger datos recibidos por POST
+        //Recoger datos recibidos
         $params_array = $this->getRequestArray($request);
 
         //Si ha recogido datos en params_array
@@ -106,8 +106,12 @@ class ProductController extends Controller
             unset($params_array['id']);
             unset($params_array['created_at']);
 
-            //Actualizar producto con el id pasado
-            $product = Product::where('id', $id)->updateOrCreate($params_array);
+            //Buscar el producto a actualizar
+            $product = Product::where('id', $id)->first();
+            if (!empty($product) && is_object($product)){
+                //Actualizar el producto encontrado por ese id
+                $product->update($params_array);
+            }
 
             //Se ha conseguido guardar, crear mensaje
             $data = $this->statusData(200, $product);
@@ -229,7 +233,6 @@ class ProductController extends Controller
     public function validateProduct($array){
         $validation = \Validator::make($array, [
             'nombre_producto'       => 'required',
-            'descripcion_producto'  => 'alpha_dash',
             //'foto'                  => 'image',
             'category_id'           => 'required|numeric',
             'tarifa'                => 'required|numeric',

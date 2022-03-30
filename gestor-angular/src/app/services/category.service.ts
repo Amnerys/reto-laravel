@@ -23,14 +23,30 @@ export class CategoryService {
       .set('Authorization',this.token);
   }
 
+  /**
+   * Método para crear una categoria por su id (POST)
+   */
   createCategory(token,category):Observable<any>{
     let params = this.getJSONParams(category);
     return this._http.post(this.url + 'category', params, {headers: this.headers});
   }
 
+  /**
+   * Método para sacar todas las categorías por su id (GET)
+   */
   getCategories():Observable<any>{
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     return this._http.get(this.url+'category', {headers: headers});
+  }
+
+  /**
+   * Método para borrar una categoria por su id (DELETE)
+   */
+  delete(token,id){
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Authorization', token);
+    return this._http.delete(this.url + 'category/' +id, {headers: headers});
   }
 
   getJSONParams(category){

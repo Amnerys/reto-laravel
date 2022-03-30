@@ -11,6 +11,8 @@ import {CategoryNewComponent} from "./components/category-new/category-new.compo
 import {CategoryListComponent} from "./components/category-list/category-list.component";
 import {ProductNewComponent} from "./components/product-new/product-new.component";
 import {ProductListComponent} from "./components/product-list/product-list.component";
+import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
+import {ProductEditComponent} from "./components/product-edit/product-edit.component";
 
 //Definir rutas
 const appRoutes: Routes = [
@@ -24,6 +26,8 @@ const appRoutes: Routes = [
   {path: 'ver-categorias', component: CategoryListComponent},
   {path: 'crear-producto', component: ProductNewComponent},
   {path: 'ver-productos', component: ProductListComponent},
+  {path: 'detalle-producto/:id', component: ProductDetailComponent},
+  {path: 'editar-producto/:id', component: ProductEditComponent},
   {path: '**', component: ErrorComponent} //cuando no exista una ruta indicada, saltará error, SIEMPRE AL FINAL
 ];
 
