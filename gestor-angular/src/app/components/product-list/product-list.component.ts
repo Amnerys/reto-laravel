@@ -46,4 +46,15 @@ export class ProductListComponent implements OnInit {
     );
   }
 
+  deleteProduct(id){
+    this._productService.delete(this.token,id).subscribe(
+      response => {
+        this.getProducts();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 }
