@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from "../../models/user";
 import {UserService} from "../../services/user.service";
 import {global} from "../../services/global";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-edit',
@@ -33,7 +34,10 @@ export class UserEditComponent implements OnInit {
     hideSelectBtn: false,
   };
 
-  constructor(private _userService: UserService) {
+  constructor(
+    private _userService: UserService,
+    private _router: Router,
+    ) {
     this.page_title = 'Ajustes de usuario';
     this.user = new User(1,'', '', '', '', '', '');
     this.identity = this._userService.getIdentity();
@@ -98,6 +102,18 @@ export class UserEditComponent implements OnInit {
 
   avatarUpload(datos){
     this.user.foto = datos.body.image;
+  }
+
+  deleteUser(id){
+    this._userService.delete(this.token, id).subscribe(
+      response => {
+        //Redirección a la página de inicio
+        this._router.navigate(['inicio']);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }

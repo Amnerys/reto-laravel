@@ -42,6 +42,16 @@ export class UserService{
     return this._http.post(this.url+'login', params, {headers: headers});
   }
 
+  /**
+   * Método para borrar un usuario por su id (DELETE)
+   */
+  delete(token,id){
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Authorization', token);
+    return this._http.delete(this.url + 'user/' +id, {headers: headers});
+  }
+
   getJSONParams(user){
     let json = JSON.stringify(user);
     return 'json=' + json;
