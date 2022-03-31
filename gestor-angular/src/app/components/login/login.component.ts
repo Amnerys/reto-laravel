@@ -48,8 +48,6 @@ export class LoginComponent implements OnInit {
             response => {
               this.identity = response;
               //Persistir datos de usuario identificado
-              console.log(this.token);
-              console.log(this.identity);
               localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity));
               //Redirección a la página de inicio
@@ -71,6 +69,9 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  /**
+   * Método que implementa el el logout o cerrar sesión de usuario
+   */
   logout(){
     this._route.params.subscribe(params => {
       let logout = +params ['sure']; //casteamos a int el string llegado

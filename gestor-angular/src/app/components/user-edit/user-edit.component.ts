@@ -100,10 +100,12 @@ export class UserEditComponent implements OnInit {
     );
   }
 
+  //Método para guardar la imagen en el usuario
   avatarUpload(datos){
     this.user.foto = datos.body.image;
   }
 
+  //Método para borrar al usuario, nos redirigirá al inicio
   deleteUser(id){
     this._userService.delete(this.token, id).subscribe(
       response => {

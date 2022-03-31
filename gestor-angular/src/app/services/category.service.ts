@@ -49,6 +49,26 @@ export class CategoryService {
     return this._http.delete(this.url + 'category/' +id, {headers: headers});
   }
 
+  /**
+   * Método para actualizar una categoria por su id
+   */
+  update(token, category, id):Observable<any>{
+    let params = this.getJSONParams(category);
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Authorization', token);
+    return this._http.put(this.url + 'category/' +id, params, {headers: headers});
+  }
+
+  /**
+   * Método para sacar una categoria por su id (GET)
+   */
+  getCategoryDetail(id):Observable<any>{
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded');
+    return this._http.get(this.url + 'category/' +id, {headers: headers});
+  }
+
   getJSONParams(category){
     let json = JSON.stringify(category);
     return 'json=' + json;

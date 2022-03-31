@@ -13,6 +13,7 @@ import {ProductNewComponent} from "./components/product-new/product-new.componen
 import {ProductListComponent} from "./components/product-list/product-list.component";
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 import {ProductEditComponent} from "./components/product-edit/product-edit.component";
+import {CategoryEditComponent} from "./components/category-edit/category-edit.component";
 
 //Definir rutas
 const appRoutes: Routes = [
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   {path: 'ajustes', component: UserEditComponent},
   {path: 'crear-categoria', component: CategoryNewComponent},
   {path: 'ver-categorias', component: CategoryListComponent},
+  {path: 'editar-categoria/:id', component: CategoryEditComponent},
   {path: 'crear-producto', component: ProductNewComponent},
   {path: 'ver-productos', component: ProductListComponent},
   {path: 'detalle-producto/:id', component: ProductDetailComponent},
