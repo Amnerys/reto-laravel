@@ -1,0 +1,12 @@
+<div class="loading" *ngIf="!category">
+  Cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="category">
+  <h1 class="mb-2">{{category.nombre_categoria}}</h1>
+  <hr>
+
+  <h3 class="mb-2">Descripción:</h3>
+  <p [innerHTML]="category.descripcion_categoria">{{category.descripcion_categoria}}</p>
+
+</div>

@@ -64,7 +64,8 @@ export class CategoryEditComponent implements OnInit {
       this._categoryService.getCategoryDetail(id).subscribe(
         response => {
           if (response.status == 'success'){
-            this.category = response.category;
+            //this.category['updated_at'] =  STR_TO_DATE(response.categories['updated_at']);
+            this.category = response.categories;
             console.log(this.category);
           }else {
             console.log('Ha habido un error');

@@ -21,6 +21,7 @@
 
         <!-- Acciones botones productos, solo se ven editar y eliminar si el usuario está identificado -->
         <div class="product-buttons mt-1">
+          <a [routerLink]="['/detalle-categoria', category.id]" class="btn btn-success mr-auto mb-2">Ver Producto</a>
           <span *ngIf="identity">
             <a [routerLink]="['/editar-categoria', category.id]" class="btn btn-warning mr-auto mb-2">Editar Categoría</a>
             <a (click)="deleteCategory(category.id)" class="btn btn-danger mr-auto mb-2" >Eliminar Categoría</a>
