@@ -18,13 +18,11 @@
       <p class="mb-lg-2 mt-lg-2 col-md-10">{{category.descripcion_categoria}}</p>
 
       <div class="card-body">
-        <!-- imagen con tamaño concreto para hacer de máscara-->
 
         <!-- Acciones botones productos, solo se ven editar y eliminar si el usuario está identificado -->
         <div class="product-buttons mt-1">
           <span *ngIf="identity">
-            <a [routerLink]="['/inicio']" class="btn btn-warning mr-auto mb-2">Editar Categoría</a>
-            <!-- <a [routerLink]="['/editar-producto', product.id]" class="btn btn-warning mr-auto mb-2">Editar Producto</a> -->
+            <a [routerLink]="['/editar-categoria', category.id]" class="btn btn-warning mr-auto mb-2">Editar Categoría</a>
             <a (click)="deleteCategory(category.id)" class="btn btn-danger mr-auto mb-2" >Eliminar Categoría</a>
           </span>
         </div>

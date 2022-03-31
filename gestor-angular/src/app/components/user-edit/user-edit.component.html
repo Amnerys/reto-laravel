@@ -41,7 +41,6 @@
       <div *ngIf="identity && identity.foto">
         <img src="{{url + 'user/avatar/' + identity.foto}}" class="avatar_edit">
       </div>
-      <!-- <input type="file" id="image" name="image" class="form-control" #image="ngModel" [(ngModel)]="user.foto"> -->
       <angular-file-uploader
         [config]="afuConfig"
         (ApiResponse)="avatarUpload($event)">
@@ -49,7 +48,11 @@
     </div>
 
     <input type="submit" value="Guardar cambios" class="btn btn-success mt-4" [disabled]="userEditForm.invalid" >
+    <!-- Botón borrar usuario -->
+    <a (click)="deleteUser(user.id)" class="btn btn-danger mt-4" [routerLink]="['/logout/1']">Eliminar Usuario</a>
+
   </form>
+
   <br>
 
 </div>
