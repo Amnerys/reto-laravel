@@ -24,6 +24,7 @@ class UserController extends Controller
 
             //Limpiar datos obtenidos
             $params_array = array_map('trim', $params_array);
+            echo (json_encode($params_array));
 
             //Regla de validación para los datos recogidos
             $validate = \Validator::make($params_array, [
@@ -32,7 +33,6 @@ class UserController extends Controller
                 'fecha_nacimiento'      => 'date',
                 'email'                 => 'required|email|unique:users',
                 'password'              => 'required',
-                'foto'                  => 'file'
             ]);
 
             //Si la validación falla:

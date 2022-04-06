@@ -31,7 +31,7 @@
 
     <div class="form-group">
       <label for="birthdate">Fecha de Nacimiento</label>
-      <input type="text" id="birthdate" name="birthdate" class="form-control" #birthdate="ngModel" [(ngModel)]=
+      <input type="date" id="birthdate" name="birthdate" class="form-control" #birthdate="ngModel" [(ngModel)]=
         "user.fecha_nacimiento" >
       <small *ngIf="!birthdate.valid && birthdate.touched" class="invalid-feedback d-block">La fecha de nacimiento no es válida</small>
     </div>
