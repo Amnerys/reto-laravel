@@ -59,7 +59,7 @@ class CategoryController extends Controller
 
         if(!empty($params_array)){
             $validate = \Validator::make($params_array, [
-                'nombre_categoria' => 'alpha_dash|required'
+                'nombre_categoria' => 'required'
             ]);
 
             //Guardar la categoría si no falla la validación
