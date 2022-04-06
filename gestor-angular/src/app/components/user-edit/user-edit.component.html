@@ -18,14 +18,13 @@
     <div class="form-group">
       <label for="name">Nombre</label>
       <input type="text" id="name" name="name" class="form-control" #name="ngModel" [(ngModel)]="user.nombre"
-             required pattern="[a-zA-Z]+" >
+             required>
       <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">El nombre no es válido</small>
     </div>
 
     <div class="form-group">
       <label for="surname">Apellidos</label>
-      <input type="text" id="surname" name="surname" class="form-control" #surname="ngModel" [(ngModel)]="user.apellidos"
-             pattern="[a-zA-Z]+">
+      <input type="text" id="surname" name="surname" class="form-control" #surname="ngModel" [(ngModel)]="user.apellidos">
       <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">Los apellidos no son válidos</small>
     </div>
 

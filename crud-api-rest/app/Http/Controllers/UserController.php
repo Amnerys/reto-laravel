@@ -133,8 +133,8 @@ class UserController extends Controller
 
             //Validar datos obtenidos
             $validate = \Validator::make($params_array, [
-                'nombre'                => 'required|alpha',
-                'apellidos'             => 'required|alpha',
+                'nombre'                => 'required',
+                'apellidos'             => 'required',
                 'fecha_nacimiento'      => 'date',
                 'email'                 => 'required|email|unique:users'.$user->sub, //excepto el email asignado al usuario
                 'foto'                  => 'file'
