@@ -7,18 +7,23 @@
       <a class="navbar-brand" href="#">
         <img src="/assets/images/clipart.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
         Gestor de Contenidos</a>
+
+      <!-- Collapse button -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- Collapsible content -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
           <li class="nav-item active">
             <a class="nav-link" [routerLink]="['/inicio']">Inicio</a>
           </li>
 
+          <!-- Dropdown -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProducts" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProducts" role="button" data-toggle="dropdown" aria-expanded="false">
               Productos
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -29,7 +34,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdd" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdd" role="button" data-toggle="dropdown" aria-expanded="false">
               Categorias
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,10 +50,10 @@
             <img src="{{url + 'user/avatar/' + identity.foto}}" class="avatar_nav">
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" *ngIf="!identity || !identity.nombre" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" *ngIf="!identity || !identity.nombre" href="#" id="navbarDropdownUser" role="button" data-toggle="dropdown" aria-expanded="false">
               Usuario
             </a>
-            <a class="nav-link dropdown-toggle" *ngIf="identity && identity.nombre" href="#" id="navbarDropdownUserLogged" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" *ngIf="identity && identity.nombre" href="#" id="navbarDropdownUserLogged" role="button" data-toggle="dropdown" aria-expanded="false">
               {{identity.nombre + ' ' + identity.apellidos}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -75,3 +80,4 @@
 
 </div>
 <!-- /Contenedor principal -->
+
