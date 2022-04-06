@@ -30,23 +30,48 @@ Los tres CRUD tienen sus componentes, con sus servicios y clases modelo.
 Además incluye vista para la página de inicio y para la página de error.
 
 ## Instrucciones:
-Migrar los datos dummies para la Base de Datos con el comando:
+1) Entra dentro de la ruta del proyecto de laravel `crud-api-rest` y ejecuta:
 
-`php artisan migrate:fresh --seed`
+`composer update`
 
-Hay datos para crear la base de datos en el documento `database.sql`.
-Crear la base de datos con:
+2) Cambiar los datos del fichero `.env` dentro de la carpeta crud-api-rest por:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=reto_laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+He añadido un fichero `.env` dentro de un .zip para facilitarlo.
+
+3) Crear la base de datos en PhpMyAdmin con la SQL:
 
 `create database if not exists reto_laravel;`
 
-Usar la base de datos:
+4) Usar la base de datos en PhpMyAdmin con la SQL:
 
 `use reto_laravel;`
 
-Levantar servidor para ejecutar proyecto de Angular:
+5) Migrar los datos dummies para la Base de Datos con el comando:
 
-`ng serve`
+`php artisan migrate:fresh --seed`
 
-Usar la dirección proporcionada en el navegador para ejecutar el proyecto:
+Hay datos para crear la base de datos en el documento `database.sql`. 
+Pero **solo necesita crear la base de datos**, las migraciones se encargan de aportar datos.
+
+6) Instalar angular dentro de la ruta del proyecto de angular `gestor-angular`:
+
+`npm install - g @angular/cli`
+
+7) Levantar servidor para ejecutar proyecto de Angular dentro de la ruta del proyecto de angular:
+
+`npm run ng serve`
+
+8) Usar la dirección proporcionada en el navegador para ejecutar el proyecto:
 
 `http://localhost:4200/`
+
+9) **OPCIONAL**: Si te da problemas de CORS, usa un navegador con la seguridad CORS desactivada. En ejecutar:
+
+`chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security`
