@@ -1,5 +1,5 @@
 # Reto-laravel
-Reto en Laravel para Studiogenesis hecho por Mónica Ferrer (Amnerys) &copy;.
+Reto en Laravel hecho por Mónica Ferrer (Amnerys) &copy;.
 
 ## Detalles:
 El BackEnd está formado con Laravel 9 y PHP 8 y basado en API RESTful, con 3 CRUDs:
